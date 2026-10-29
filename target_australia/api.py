@@ -29,7 +29,7 @@ from target_australia.fetch import (TargetNotFound, fetch_brand_page, fetch_bran
                                     fetch_sitemap, fetch_stock, fetch_store_finder, fetch_store_page)
 
 NS = "target_australia"
-_BASE_CODE_RE = re.compile(r"^[WP]\d+$")
+_BASE_CODE_RE = re.compile(r"^[WP](?=[A-Z0-9]*\d)[A-Z0-9]+$")   # W1521109, P73493297, W220MILAHRFL1
 _SKU_RE = re.compile(r"^\d+$")
 MAX_STOCK_SKUS = 60   # one stockStatus call; a base product has up to ~45 SKUs
 

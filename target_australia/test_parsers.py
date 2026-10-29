@@ -37,6 +37,8 @@ def fixture(name):
     ("w1521109", "W1521109"),
     ("P73493297", "P73493297"),
     ("5000322001FL_amber", "5000322001FL_amber"),
+    ("W220MILAHRFL1", "W220MILAHRFL1"),          # alphanumeric base a listing returns
+    ("w220milahrfl1", "W220MILAHRFL1"),
     ("https://www.target.com.au/p/arlo-stonewash-sheet-set/1521109_white", "1521109_white"),
     ("https://www.target.com.au/p/63681024?x=1", "63681024"),
     ("www.target.com.au/p/some-slug/W1521109", "W1521109"),
@@ -46,7 +48,7 @@ def test_resolve_product(value, expected):
 
 
 @pytest.mark.parametrize("value", ["", "sheet set", "https://example.com/p/63681024",
-                                   "https://www.target.com.au/c/toys/W138532", "abc"])
+                                   "https://www.target.com.au/c/toys/W138532", "abc", "Wonder"])
 def test_resolve_product_rejects(value):
     with pytest.raises(ValueError):
         refs.resolve_product(value)

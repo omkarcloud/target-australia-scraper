@@ -29,7 +29,10 @@ SITE = "https://www.target.com.au"
 ASSETS = "https://assets.target.com.au"
 ALL_PRODUCTS = "AP01"   # the root group of the search engine's category tree
 
-PRODUCT_CODE_RE = re.compile(r"^[WP]?\d{5,12}[A-Z]{0,3}(?:_[A-Za-z0-9-]{1,40})?$", re.I)
+# SKU 63681024, colour variant 1521109_white, base W1521109 / P73493297, and
+# the alphanumeric bases listings carry for own-brand apparel (W220MILAHRFL1)
+PRODUCT_CODE_RE = re.compile(
+    r"^(?:[WP]?\d{5,12}[A-Z]{0,3}|[WP](?=[A-Z0-9]*\d)[A-Z0-9]{5,20})(?:_[A-Za-z0-9-]{1,40})?$", re.I)
 CATEGORY_CODE_RE = re.compile(r"^(?:W\d{4,12}|AP01)$", re.I)
 SLUG_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,120}$")
 STORE_NUMBER_RE = re.compile(r"^\d{3,6}$")
