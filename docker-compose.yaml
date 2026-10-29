@@ -1,0 +1,12 @@
+services:
+  target-australia-scraper:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      # Optional. Set an Australian residential proxy only if product, store
+      # or sitemap endpoints start answering 403 (Akamai refuses some
+      # datacenter IPs).
+      # - TARGET_AUSTRALIA_PROXY=http://user:pass@host:port
